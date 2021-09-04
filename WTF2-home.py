@@ -467,4 +467,4 @@ def findc(name):
 
 if __name__ == '__main__':
  
-    app.run(host="192.168.50.244",port=5000) 
+    app.run() 
