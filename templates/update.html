@@ -1,0 +1,149 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('tbl_exporttable_to_xls');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>
+<style>
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+</style>
+
+<body>
+	
+
+	 <div class="container-fluid">
+    	<h2><i class="fas fa-shipping-fast"></i> 查詢</h2>
+		 <form action="/user/{{name}}/update" method = "POST">
+				<p>查詢項目:  <select name="take" id="take">
+												
+											<option value="編號">編號</option>
+											
+											<option value="箱號">箱號</option>
+											<option value="name">name</option>
+											
+											</select></p>
+					<p>輸入:  <input type="text" name="indax"/></p>
+					<input type="submit" name="send2" value="查詢"/>
+		</form>			
+	</div>		
+	
+	
+<p></p>	
+ <div class="container-fluid">	
+	<div class="table-responsive">					
+	  <table class="table table-bordered" id="tbl_exporttable_to_xls" style="border:3px #cccccc solid;" >
+		<thead>
+			<th>編號</th>
+			<th>業務</th>
+			<th>箱號</th>
+			<th>name</th>
+			<th>委託出貨日</th>
+			<th>件數</th>
+			<th>內容物</th>
+			<th>公斤</th>
+			<th>運送地區</th>
+			<th>提貨安排</th>
+			<th>出口報關</th>
+			<th>單價</th>
+			<th>首重</th>
+			<th>派件費</th>
+			<th>其他費用總和</th>
+			<th>報價備註</th>
+			<th>清關價</th>
+        </thead>
+
+           {% for i in index %}
+              <tr >
+	
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+				  <td>{{ i[2] }}</td>
+                  <td>{{ i[3] }}</td>
+				  <td>{{ i[4] }}</td>
+                  <td>{{ i[5] }}</td>
+				  <td>{{ i[6] }}</td>
+                  <td>{{ i[7] }}</td>
+				  <td>{{ i[8] }}</td>
+                  <td>{{ i[9] }}</td>
+				  <td>{{ i[10] }}</td>
+                  <td>{{ i[11] }}</td>
+				  <td>{{ i[12] }}</td>
+                  <td>{{ i[13] }}</td>
+				  <td>{{ i[14] }}</td>
+                  <td>{{ i[15] }}</td>
+				  <td>{{ i[16] }}</td>
+                  <td>{{ i[17] }}</td>
+				</tr>
+
+             {% endfor %}
+
+  </table>
+  
+  	
+    <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
+	
+	</div>	
+  </div>
+  
+  <p></p>	
+ <div class="container-fluid" >
+		
+			
+				<h3><i class="fas fa-shipping-fast"></i> 修改</h3>
+				
+				<form action="/user/{{name}}/updatenext" method = "POST">
+					<p>編號:  <input type="text" name="number"/></p>
+					<p>修改項目:  <select name="take" id="take">
+												
+											<option value="編號">編號</option>
+											<option value="業務">業務</option>
+											<option value="箱號">箱號</option>
+											<option value="name">name</option>
+											<option value="委託出貨日">委託出貨日</option>
+											<option value="件數">件數</option>
+											<option value="內容物">內容物</option>
+											<option value="公斤">公斤</option>
+											<option value="運送地區">運送地區</option>
+											<option value="提貨安排">提貨安排</option>
+											<option value="出口報關">出口報關</option>
+											<option value="單價">單價</option>
+											<option value="首重">首重</option>
+											<option value="派件費">派件費</option>
+											<option value="其他費用總和">其他費用總和</option>
+											<option value="報價備註">報價備註</option>
+											<option value="清關價">清關價</option>
+											</select></p>
+					<p>輸入:  <input type="text" name="indax"/></p>
+						
+					<input type="submit" name="send4" value="送出"/>
+				</form>
+				
+			
+
+			
+
+
+<p></p>
+	<p><a href = "/user/{{name}}">返回主頁</a></p>
+</div>
+	
+ </body>
+{% endblock %}

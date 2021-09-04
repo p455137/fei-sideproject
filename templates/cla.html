@@ -1,0 +1,56 @@
+<head>
+  <title>Bootstrap Navigation Bar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top ">
+   
+        <div class="container-fluid">
+           <ul class="nav navbar-nav">
+				    <a class="navbar-brand" href="#">FEI</a>
+				
+				
+			</ul>
+			  <ul class="nav navbar-nav">
+				    
+					
+					<li><a data-toggle="tab" href="#menu1">委託表格</a></li>
+					
+				
+				</ul>
+			
+			  
+			
+		   
+
+			  
+			</nav>	
+		</div>
+</div>    
+ 
+ 
+ 
+ <style>
+       body{ 
+           padding-top: 200px;
+           position:relative;
+       }
+    </style> 
+
+	
+	
+<body>
+      <div id="menu1" class="tab-pane fade">
+		  操作結果 : {{ msg }}
+		  
+		
+		  
+		  <h2><a href = "/user/{{name}}">返回主頁</a></h2>
+		</div>
+   </body>
+</head>

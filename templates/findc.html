@@ -1,0 +1,155 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('tbl_exporttable_to_xls');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+</script>
+<style>
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+</style>
+				
+<body>
+
+      操作結果 : {{ msg }}
+ <div class="container-fluid">	  
+	<div class="table-responsive">
+	  <table class="table table-bordered" style="border:3px #cccccc solid;" >
+		<thead>
+			<th>編號</th>
+			<th>業務</th>
+			<th>箱號</th>
+			<th>name</th>
+			<th>委託出貨日</th>
+			<th>件數</th>
+			<th>內容物</th>
+			<th>公斤</th>
+			<th>運送地區</th>
+			<th>提貨安排</th>
+			<th>出口報關</th>
+			<th>單價</th>
+			<th>首重</th>
+			<th>派件費</th>
+			<th>其他費用總和</th>
+			<th>報價備註</th>
+			<th>清關價</th>
+        </thead>
+
+           {% for i in index %}
+              <tr >
+	
+                  <td>{{ i[0] }}</td>
+                  <td>{{ i[1] }}</td>
+				  <td>{{ i[2] }}</td>
+                  <td>{{ i[3] }}</td>
+				  <td>{{ i[4] }}</td>
+                  <td>{{ i[5] }}</td>
+				  <td>{{ i[6] }}</td>
+                  <td>{{ i[7] }}</td>
+				  <td>{{ i[8] }}</td>
+                  <td>{{ i[9] }}</td>
+				  <td>{{ i[10] }}</td>
+                  <td>{{ i[11] }}</td>
+				  <td>{{ i[12] }}</td>
+                  <td>{{ i[13] }}</td>
+				  <td>{{ i[14] }}</td>
+                  <td>{{ i[15] }}</td>
+				  <td>{{ i[16] }}</td>
+                  <td>{{ i[17] }}</td>
+				</tr>
+
+             {% endfor %}
+
+  </table>
+   </div> 
+ </div>
+<div class="container-fluid">	  
+	<div class="table-responsive">
+		 <table class="table table-bordered"  style="border:3px #cccccc solid;" >
+				<thead>
+					<th>編號</th>
+					<th>箱號( C / NO )</th>
+					<th>箱數</th>
+					<th>外包裝型式</th>
+					<th>託運貨物準確品名</th>
+					<th>入箱數( PCS / 箱 )</th>
+					<th>外箱尺寸(長*寬*高)</th>
+					<th>裝箱數量</th>
+					<th>物品單位</th>
+					<th>每PCS淨重( KG / PCS )</th>
+					<th>總淨重( N.W )</th>
+					<th>總毛重( G.W )</th>
+					<th>飛特過磅</th>
+					<th>材積重量( V.W )</th>
+					<th>計價重量</th>
+					<th>材質組成(物品)成分標示(食品)</th>
+					<th>生產日期</th>
+					<th>有效期限</th>
+					<th>品牌</th>
+					<th>製造商名稱</th>
+					<th>產地</th>
+					<th>物品用途</th>
+					<th>貨物成本價值(NT$/PCS)</th>
+					<th>收件人</th>
+					<th>收件電話</th>
+					<th>收件地址</th>
+					<th>備註</th>
+				</thead>
+
+				   {% for i in index2 %}
+					  <tr>
+
+						  <td>{{ i[0] }}</td>
+						  <td>{{ i[1] }}</td>
+						  <td>{{ i[2] }}</td>
+						  <td>{{ i[3] }}</td>
+						  <td>{{ i[4] }}</td>
+						  <td>{{ i[5] }}</td>
+						  <td>{{ i[6] }}</td>
+						  <td>{{ i[7] }}</td>
+						  <td>{{ i[8] }}</td>
+						  <td>{{ i[9] }}</td>
+						  <td>{{ i[10] }}</td>
+						  <td>{{ i[11] }}</td>
+						  <td>{{ i[12] }}</td>
+						  <td>{{ i[13] }}</td>
+						  <td>{{ i[14] }}</td>
+						  <td>{{ i[15] }}</td>
+						  <td>{{ i[16] }}</td>
+						  <td>{{ i[17] }}</td>
+						  <td>{{ i[18] }}</td>
+						  <td>{{ i[19] }}</td>
+						  <td>{{ i[20] }}</td>
+						  <td>{{ i[21] }}</td>
+						  <td>{{ i[22] }}</td>
+						  <td>{{ i[23] }}</td>
+						  <td>{{ i[24] }}</td>
+						  <td>{{ i[25] }}</td>
+						  <td>{{ i[26] }}</td>
+						 
+						</tr>
+
+					 {% endfor %}
+
+		  </table>
+	  </div>
+ </div>
+	 <p><a href = "/user/{{name}}">返回主頁</a></p>
+
+   </body>
+{% endblock %}

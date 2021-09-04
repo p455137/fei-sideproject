@@ -1,0 +1,78 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+ 
+ 
+
+
+
+		
+
+ 
+ <div class="container"	 >
+		
+				
+				<h3><i class="fas fa-shipping-fast"></i> 委託表格</h3>
+				{{msg}}
+     
+				
+					<form method = "POST">
+						<p>名稱:  <input type="text" name="user"/></p>
+						<p>日期:  <input type="text" name="date"/></p>
+						<p>件數:  <input type="text" name="no"/></p>
+						<p>內容物:<input type="text" name="index"/></p>
+						<p>重量:  <input type="text" name="weight"/></p>
+						<p>運送地區:  <input type="text" name="location"/></p>
+						<p>提貨安排(Y/N):  <select name="take" id="take">
+												<option value="N">N</option>
+												<option value="Y">Y</option>
+											</select></p>
+						<p>出口報關(Y/N):  <select name="invoice" id="invoice"/>
+												<option value="N">N</option>
+												<option value="Y">Y</option>
+											</select></p>
+						
+						<p>單價:  <input type="text" name="price"/></p>
+						<p>首重:  <input type="text" name="firstprice"/></p>
+						<p>派件費:  <input type="text" name="sendingprice"/></p>
+						<p>其他費用總和:  <input type="text" name="otherprice"/></p>
+						<p>報價備註:  <input type="text" name="noteprice"/></p>
+						<p>清關價:  <input type="text" name="saleprice"/></p>
+						<p>箱號:  <input type="text" name="boxnu"/></p>
+						
+						<input type="submit" name="send" value="送出"/>
+						
+					</form>
+					
+                 ------------------------------------------------
+				
+					<p><i class="fas fa-shipping-fast"></i> 查詢</p>
+					 <form action="/user/{{name}}/rearch"  method = "POST">
+						<input type="submit" name="send2" value="查詢"/>
+					</form>
+				
+				-----------------------------------------------
+				
+					<p><i class="fas fa-shipping-fast"></i> 刪除</p>
+					 <form action="/user/{{name}}/delete"  method = "POST">
+					<p>編號:  <input type="text" name="number"/></p>
+					<input type="submit" name="send3" value="刪除"/>
+					</form>
+				
+			
+					--------------------------------------------
+				
+					<p><i class="fas fa-shipping-fast"></i> 委託資料</p>
+					 <form action="/user/{{name}}/print"  method = "POST">
+					
+					<input type="submit" name="send4" value="print"/>
+					</form>
+		  
+				
+		
+			
+			
+</div>
+{% endblock %}

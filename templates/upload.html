@@ -1,0 +1,32 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+
+ <div class="container"	 >
+		 <form action = "/user/{{name}}/upload" method = "POST" enctype = "multipart/form-data">
+				<i class="fas fa-file-export"></i> <input type = "file" name = "file" />
+				 <input type = "submit" name="submit" value="submit"/>
+		 </form>
+ 
+                
+
+ 
+ 
+ </div>
+ 
+
+ <div class="container"	 >
+ 
+   <p>-----------------------------</P>
+    <p><i class="fas fa-shipping-fast"></i> 刪除</p>
+					 <form action="/user/{{name}}/deletes"  method = "POST">
+					<p>編號:  <input type="text" name="number"/></p>
+					<input type="submit" name="send3" value="刪除"/>
+					</form>
+	
+</div>		
+{% endblock %} 
+
+

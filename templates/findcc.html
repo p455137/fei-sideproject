@@ -1,0 +1,33 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+ 
+
+
+
+
+
+
+		
+<body>
+ 
+ <div class="container"	 >
+		
+			
+				<h3><i class="fas fa-shipping-fast"></i> 查詢</h3>
+				
+				<form action="/user/{{name}}/findcc" method = "POST">
+				
+					<p>編號:  <input type="text" name="indax"/></p>
+					<input type="submit" name="send" value="送出"/>
+				</form>
+				
+			
+  
+			
+</div>
+
+</body>
+{% endblock %}

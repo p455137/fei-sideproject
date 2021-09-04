@@ -1,0 +1,70 @@
+{% extends "body.html" %}
+
+{% block title %}FEI{% endblock %}
+
+{% block main %}
+ 
+
+
+
+
+
+
+		
+
+ 
+ <div class="container"	 >
+		
+			
+				<h3><i class="fas fa-shipping-fast"></i> 查詢</h3>
+				
+				<form method = "POST">
+					<p>名稱:  <input type="text" name="user"/></p>
+					
+					<p>箱號:  <input type="text" name="boxnu"/></p>
+					
+					<p>編號:  <input type="text" name="number"/></p>
+					<input type="submit" name="send" value="送出"/>
+				</form>
+				
+			<div class="row">
+     <br>
+		<div class="col-md-6 col-lg-3  "> 
+		  <div class="card">
+		   <img src="https://photo.sofun.tw/2017/10/kuaidi100-Logo.png" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+			 <h5 class="card-title">快遞100</h5>
+			 <p class="card-text"><i class="fas fa-anchor"></i>快遞100查詢網址</p>
+			  <button class="btn btn-info " ><a href="https://m.kuaidi100.com/"><font color="white">進入網址</a></font></button>
+			</div>
+		  </div>
+		</div>
+	 <br>
+		<div class="col-md-6 col-lg-3  "> 
+		  <div class="card" >
+		   <img src="https://htm.sf-express.com/resource/images/index/logotc.png" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+			 <h5 class="card-title">順豐</h5>
+			 <p class="card-text"><i class="fas fa-anchor"></i>順豐查詢網址</p>
+			  <button class="btn btn-info"><a href="https://htm.sf-express.com/tw/tc/"><font color="white">進入網址</a></font></button>
+			</div>
+		  </div>
+		</div>
+	  
+	   <br>
+		<div class="col-md-6 col-lg-3  "> 
+		  <div class="card" >
+		   <img src="https://www.800best.com/img/logo.png" class="card-img-top img-fluid" alt="...">
+			<div class="card-body">
+			 <h5 class="card-title">百世</h5>
+			 <p class="card-text"><i class="fas fa-anchor"></i>百世查詢網址</p>
+			  <button class="btn btn-info  "><a href="https://www.800best.com/freight/track.asp"><font color="white">進入網址</a></font></button>
+			</div>
+		  </div>
+		</div>
+	 
+  </div>
+  
+			
+</div>
+{% endblock %}
